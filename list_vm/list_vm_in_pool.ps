@@ -1,0 +1,14 @@
+#!/usr/bin/pwsh
+
+param (
+      [string] $resourcepool
+     ,[string] $vmname
+)
+
+#$date = Get-Date -Format "yyyyMMdd"
+
+Connect-VIServer 10.2.3.1 -User "sayaydin" -Password "password"
+
+#Get-ResourcePool -Name $resourcepool | Get-VM | select Name
+#Get-ResourcePool -Name $resourcepool | Get-VM | Where {($_.Name -like "*$vmname*")}
+Get-ResourcePool -Name $resourcepool | Get-VM | Where {($_.Name -like "*$vmname*")}|select Name

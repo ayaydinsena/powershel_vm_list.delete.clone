@@ -1,0 +1,12 @@
+#!/usr/bin/pwsh
+
+param (
+      [string] $vm_name
+)
+Connect-VIServer 10.2.3.1 -User "sayaydin" -Password "password"
+
+#Get spesific vm
+#Get-VM -Name $vm_name* -ErrorAction Stop;
+
+#Remove VM From datastore
+Remove-VM -VM $vm_name -DeletePermanently -ErrorAction Stop -Confirm:$False;

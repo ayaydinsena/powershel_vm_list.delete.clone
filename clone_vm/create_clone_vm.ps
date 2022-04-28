@@ -1,0 +1,12 @@
+#!/usr/bin/pwsh
+
+param (
+      [string] $vm_name
+     ,[string] $datastore
+     ,[string] $resourcepool
+)
+
+$date = Get-Date -Format "yyyyMMdd"
+
+Connect-VIServer 10.2.3.1 -User "sayaydin" -Password "password"
+New-VM -VM $vm_name  -Name cb-$vm_name-$date -Datastore $datastore -ResourcePool $resourcepool  -ErrorAction Stop;
